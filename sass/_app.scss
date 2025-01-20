@@ -1,8 +1,10 @@
 @use 'variable';
+@use 'mixin';
 
 .header {
-  height: 80px;
-  width: 380px;
+  box-sizing: border-box;
+  height: 100px;
+  width: 400px;
   background-color: variable.$navy;
   padding-top: 20px;
   padding-right: 20px;
@@ -17,15 +19,7 @@
     background-color: #fff;
     width: auto;
 
-    @each $className in variable.$classNames {
-      $index_key: index($list: variable.$classNames, $value: $className);
-      
-      & > .square__#{$className} {
-        background-color: nth(variable.$buttonColor, $index_key);
-        height: 40px;
-        width: 40px;
-      }
-    }
+    @include mixin.threeBox(40px, 40px);
   }
 }
 
@@ -39,14 +33,16 @@
   }
   
   .main__content {
-    height: 210px;
-    width: 210px;
+    box-sizing: border-box;
+    height: 250px;
+    width: 250px;
     padding-top: 40px;
     padding-left: 40px;
     background-color: variable.$red;
 
     .outer__box {
       background-color: variable.$white;
+      box-sizing: content-box;
       height: 40px;
       width: 140px;
       margin-top: 10px;
@@ -56,15 +52,7 @@
         margin-top: 0px;
       }
 
-      @each $className in variable.$classNames {
-        $index_key: index($list: variable.$classNames, $value: $className);
-        
-        & > .box__#{$className} {
-          background-color: nth(variable.$buttonColor, $index_key);
-          height: 40px;
-          width: 140px;
-        }
-      }
+      @include mixin.threeBox(40px, 140px);
     }
   }
 }

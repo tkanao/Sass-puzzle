@@ -11,3 +11,9 @@
     }
   }
 }
+
+@mixin backGroundStyle($color, $height, $width) {
+  background-color: $color;
+  height: $height;
+  width: $width;
+}

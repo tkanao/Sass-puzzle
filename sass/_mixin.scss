@@ -1,0 +1,19 @@
+@use 'variable';
+
+@mixin threeBox($height, $width) {
+  @each $className in variable.$classNames {
+    $index_key: index($list: variable.$classNames, $value: $className);
+    
+    & > .#{$className} {
+      background-color: nth(variable.$buttonColor, $index_key);
+      height: $height;
+      width: $width;
+    }
+  }
+}
+
+@mixin backGroundStyle($color, $height, $width) {
+  background-color: $color;
+  height: $height;
+  width: $width;
+}

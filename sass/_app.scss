@@ -1,0 +1,53 @@
+@use 'variable';
+@use 'mixin';
+
+.header {
+  box-sizing: border-box;
+  @include mixin.backGroundStyle(variable.$navy, 100px, 400px);
+  padding-top: 20px;
+  padding-right: 20px;
+  display: flex;
+  justify-content: flex-end;
+  
+  .box__list {
+    display: flex;
+    gap: 10px;
+    padding: 10px;
+    background-color: #fff;
+    width: auto;
+
+    @include mixin.threeBox(40px, 40px);
+  }
+}
+
+.main {
+  display: flex;
+  
+  .sidebar {
+    @include mixin.backGroundStyle(variable.$green, 250px, 150px);
+  }
+  
+  .main__content {
+    box-sizing: border-box;
+    @include mixin.backGroundStyle(variable.$red, 250px, 250px);
+    padding-top: 40px;
+    padding-left: 40px;
+
+    .outer__box {
+      box-sizing: content-box;
+      @include mixin.backGroundStyle(variable.$white, 40px, 140px);
+      margin-top: 10px;
+      padding: 5px;
+
+      &:first-child {
+        margin-top: 0px;
+      }
+
+      @include mixin.threeBox(40px, 140px);
+    }
+  }
+}
+
+.footer {
+  @include mixin.backGroundStyle(variable.$brown, 100px, 400px);
+}
